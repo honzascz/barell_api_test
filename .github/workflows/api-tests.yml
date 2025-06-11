@@ -1,7 +1,7 @@
 name: Manual triger for API Test Run
 
 on:
-  workflow_dispatch:  # Umožní ruční spuštění pomocí tlačítka
+  workflow_dispatch:
 
 jobs:
   test:
@@ -19,7 +19,6 @@ jobs:
     - name: Install dependencies
       run: |
         python -m pip install --upgrade pip
-        pip install -r requirements.txt
         pip install pytest requests jsonschema
 
     - name: Run Pytest
