@@ -6,7 +6,7 @@ import barrel_api
 from schemas import measurement_schema
 from jsonschema import validate
 
-""" def test_create_measurement():
+def test_create_measurement():
     # Verifies that a measurement can be created and that the returned data matches the expected schema.
     
     # Create barrel
@@ -72,13 +72,14 @@ def test_get_measurements():
         validate(instance=measurement, schema=measurement_schema)
 
 # Allow TC if multiple measurements is possible for one barrel
+"""
 def test_create_multiple_measurements_for_barrel():
     # Verifies that creating multiple measurements for one barrel is possible.
     barrel_id = create_barrel()
     for i in range(10):
         payload = measurement_api.new_measurement_payload(barrel_id)
         create_response = measurement_api.create_measurement(payload)
-        assert create_response.status_code == 201
+        assert create_response.status_code == 201"""
 
 ### Negative scenarios
 
@@ -95,7 +96,7 @@ def test_create_measurement_for_nonexistent_barrel():
     payload=measurement_api.new_measurement_payload() # empty barrel id to generate random
     response = measurement_api.create_measurement(payload)
     assert response.status_code == 404
-"""
+
 @pytest.mark.parametrize("payload_template, missing_or_invalid_fields", [
     # All required fields missing
     (lambda barrel_id: {}, ["barrelId", "dirtLevel", "weight"]),
