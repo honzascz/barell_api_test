@@ -30,7 +30,6 @@ pytest -v
 Tests are independent and safe to run in parallel.
 
 ```bash
-pip install pytest-xdist
 pytest -n 4
 ```
 
